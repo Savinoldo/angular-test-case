@@ -1,0 +1,21 @@
+<div class="menu">
+  <div class = "menuItem" style = "height: 30px"></div>
+    <ul>
+      <li [class.active]="selectedItem === 'home'" (click)="selectItem('home')">
+        <a routerLink="/home">Home</a>
+      </li>
+      <li [class.active]="selectedItem === 'inventory'" (click)="selectItem('inventory')">
+        <a routerLink="/inventory">Inventory</a>
+      </li>
+      <li [class.active]="selectedItem === 'reports'" (click)="selectItem('reports')">
+        <a routerLink="/reports">Reports</a>
+      </li>
+      <li [class.active]="selectedItem === 'billing'" (click)="selectItem('billing')">
+        <a routerLink="/billing">Billing</a>
+      </li>
+      <li [class.active]="selectedItem === 'profile'" (click)="selectItem('profile')">
+        <a routerLink="/profile">Profile</a>
+      </li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,37 @@
+<form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" disabled>
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" class="form-control" [(ngModel)]="user.name" required maxlength="255">
+    <div *ngIf="profileForm.controls['name'].invalid" class="text-danger">
+      Name is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastName">Last name:</label>
+    <input type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="user.lastName" required maxlength="255">
+    <div *ngIf="profileForm.controls['lastName'].invalid" class="text-danger">
+      Last name is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="phoneNumber">Phone number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" [(ngModel)]="user.phoneNumber" required pattern="[0-9]{10}">
+    <div *ngIf="profileForm.controls['phoneNumber'].invalid && (profileForm.controls['phoneNumber'].dirty || profileForm.controls['phoneNumber'].touched)" class="text-danger">
+      Phone number is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="websiteUrl">Website URL:</label>
+    <input type="url" id="websiteUrl" name="websiteUrl" class="form-control" [(ngModel)]="user.websiteUrl">
+  </div>
+  
+  <button type="submit" click="onSubmit()" class="btn btn-primary" [disabled]="!profileForm.valid">Save</button>
+</form>
